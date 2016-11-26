@@ -45,7 +45,7 @@
     "ember",
     "data",
     "adapter",
-    "serializeer",
+    "serializer",
     "drupal"
   ],
   "dependencies": {

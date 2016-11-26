@@ -1,6 +1,6 @@
 # Ember-data-drupal
 
-This README outlines the details of collaborating on this Ember addon.
+The aim of this addon is to track state of play of the Drupal 8 CMS JSON API module and provide ready to go adapter and serializers. First usable version imminent.
 
 ## Installation
 
