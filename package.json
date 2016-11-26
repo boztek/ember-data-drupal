@@ -1,6 +1,6 @@
 {
   "name": "ember-data-drupal",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Ember data support for the Drupal 8 CMS (using https://www.drupal.org/project/jsonapi)",
   "directories": {
     "doc": "doc",
