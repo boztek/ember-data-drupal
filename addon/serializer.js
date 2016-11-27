@@ -14,14 +14,6 @@ const DRUPAL_FIELD_PREFIX = 'field_';
 const DrupalJSONAPISerializer = DS.JSONAPISerializer.extend({
   drupalMapper: service(),
 
-  keyForAttribute: function(attr) {
-    let mapper = get(this, 'drupalMapper');
-    if (mapper.isField(attr)) {
-      return DRUPAL_FIELD_PREFIX + underscore(attr);
-    }
-    return underscore(attr);
-  },
-
   keyForModelAttribute: function(modelName, attr) {
     let mapper = get(this, 'drupalMapper');
     return mapper.fieldName(modelName, attr);
@@ -41,12 +33,6 @@ const DrupalJSONAPISerializer = DS.JSONAPISerializer.extend({
     return singularize(normalizeModelName(key));
   },
 
-  /**
-    @method extractAttributes
-    @param {DS.Model} modelClass
-    @param {Object} resourceHash
-    @return {Object}
-  */
   extractAttributes(modelClass, resourceHash) {
     let modelClassString = modelClass.toString(),
         modelName = modelClassString.split(':')[1];
@@ -74,10 +60,8 @@ const DrupalJSONAPISerializer = DS.JSONAPISerializer.extend({
       modelClass.eachRelationship((key) => {
         let relationshipKey = this.keyForModelRelationship(modelName, key);
         if (resourceHash.relationships[relationshipKey] !== undefined) {
-
           let relationshipHash = resourceHash.relationships[relationshipKey];
           relationships[key] = this.extractRelationship(relationshipHash);
-
         }
       });
     }
