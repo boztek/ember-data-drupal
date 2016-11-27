@@ -11,7 +11,7 @@
     "start": "ember server",
     "test": "ember try:each"
   },
-  "repository": "",
+  "repository": "http://github.com/boztek/ember-data-drupal",
   "engines": {
     "node": ">= 0.12.0"
   },
