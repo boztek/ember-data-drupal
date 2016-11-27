@@ -6,7 +6,7 @@ const {
   inject: { service }
 } = Ember;
 
-const DrupalJSONAPIAdapter = DS.JSONAPIAdapter.extend({
+export default DS.JSONAPIAdapter.extend({
   namespace: 'api',
   drupalMapper: service(),
 
@@ -24,5 +24,3 @@ const DrupalJSONAPIAdapter = DS.JSONAPIAdapter.extend({
     return query;
   },
 });
-
-export default DrupalJSONAPIAdapter;
