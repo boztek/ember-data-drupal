@@ -1,5 +1,4 @@
 import Ember from 'ember';
-// import config from '../config/environment';
 
 const {
   Service,
@@ -10,22 +9,17 @@ const DRUPAL_FIELD_PREFIX = 'field_';
 
 export default Service.extend({
   init() {
-    let config = Ember.getOwner(this).resolveRegistration('config:environment');    this._super(...arguments);
+    let config = Ember.getOwner(this).resolveRegistration('config:environment');
+    this._super(...arguments);
     this.map = config.drupalEntityModels || {};
   },
   entityFor(modelName) {
-    if (undefined === this.map[modelName]) {
-      return 'node';
-    }
-    let modelMap = this.map[modelName];
-    return modelMap.entity;
+    let modelMap = this.map[modelName] || {};
+    return modelMap.entity || 'node';
   },
   bundleFor(modelName) {
-    if (undefined === this.map[modelName]) {
-      return modelName;
-    }
-    let modelMap = this.map[modelName];
-    return modelMap.bundle;
+    let modelMap = this.map[modelName] || {};
+    return modelMap.bundle || modelName;
   },
   fieldName(modelName, fieldName) {
     let modelMap = this.map[modelName] || {},
