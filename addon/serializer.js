@@ -35,10 +35,8 @@ const DrupalJSONAPISerializer = DS.JSONAPISerializer.extend({
 
   extractAttributes(modelClass, resourceHash) {
     let modelClassString = modelClass.toString(),
-        modelName = modelClassString.split(':')[1];
-
-    var attributes = {};
-
+        modelName = modelClassString.split(':')[1],
+        attributes = {};
     if (resourceHash.attributes) {
       modelClass.eachAttribute((key) => {
         let attributeKey = this.keyForModelAttribute(modelName, key);
@@ -52,10 +50,8 @@ const DrupalJSONAPISerializer = DS.JSONAPISerializer.extend({
 
   extractRelationships(modelClass, resourceHash) {
     let modelClassString = modelClass.toString(),
-        modelName = modelClassString.split(':')[1];
-
-    let relationships = {};
-
+        modelName = modelClassString.split(':')[1],
+        relationships = {};
     if (resourceHash.relationships) {
       modelClass.eachRelationship((key) => {
         let relationshipKey = this.keyForModelRelationship(modelName, key);
@@ -65,7 +61,6 @@ const DrupalJSONAPISerializer = DS.JSONAPISerializer.extend({
         }
       });
     }
-
     return relationships;
   },
 });

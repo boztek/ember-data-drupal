@@ -14,7 +14,6 @@ export default DS.JSONAPIAdapter.extend({
     let drupalMapper = get(this, 'drupalMapper'),
         entity = drupalMapper.entityFor(modelName),
         bundle = drupalMapper.bundleFor(modelName);
-
     return entity + '/' + bundle;
   },
 
