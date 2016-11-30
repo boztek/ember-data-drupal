@@ -1,6 +1,6 @@
-# Ember-data-drupal
+# ember-data-drupal
 
-The aim of this addon is to track state of play of the Drupal 8 CMS JSON API module and provide ready to go adapter and serializers.
+Initial docs can be found at http://boris.com.au/ember-data-drupal.
 
 ## Installation
 
