@@ -28,7 +28,7 @@ const DrupalJSONAPISerializer = DS.JSONAPISerializer.extend({
     let parts = key.split('--');
     if (parts.length === 2) {
       let bundle = parts[1];
-      return bundle;
+      return singularize(normalizeModelName(bundle));
     }
     return singularize(normalizeModelName(key));
   },
