@@ -29,12 +29,12 @@ e.g.
       var ENV = {
         drupalEntityModels: {
           // Map 'article' ember data model to Drupal entity type 'node'.
-          article: { entity: 'node' },
-          // Map 'event' ember data model to Drupal entity type 'node',
-          // entity bundle type 'news_event'.
+          "article": { },
+          // Map 'public-event' ember data model to Drupal entity type 'node',
+          // entity bundle type 'event'.
           // Also map event model fields 'location' and 'relatedArticle' to
-          // 'field_location' and 'field_related_article' respectively.
-          event: { entity: 'node', bundle: 'news_event', fields: ['location', 'relatedArticle'] },
+          // 'field_location' and 'field_related_article' payload keys respectively.
+          "public-event": { entity: 'node', bundle: 'event', fields: ['location', 'relatedArticle'] },
         }
       }
     }
