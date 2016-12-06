@@ -39,6 +39,8 @@ export default DS.JSONAPIAdapter.extend({
     if (this.sortQueryParams) {
       query = this.sortQueryParams(drupalQuery);
     }
+
+    query._format = 'api_json';
     return this.ajax(url, 'GET', { data: query });
   },
 });
