@@ -22,4 +22,23 @@ export default DS.JSONAPIAdapter.extend({
     query._format = 'api_json';
     return query;
   },
+
+  query(store, type, query) {
+    let drupalQuery = { filter: {} },
+        queryFields = Object.keys(query),
+        mapper = get(this, 'drupalMapper');
+
+    queryFields.forEach((field) => {
+      let fieldName = mapper.fieldName(type.modelName, field);
+      drupalQuery.filter[fieldName] = drupalQuery.filter[fieldName] || {};
+      drupalQuery.filter[fieldName]['value'] = query[field];
+    });
+
+    var url = this.buildURL(type.modelName, null, null, 'query', drupalQuery);
+
+    if (this.sortQueryParams) {
+      query = this.sortQueryParams(drupalQuery);
+    }
+    return this.ajax(url, 'GET', { data: query });
+  },
 });
