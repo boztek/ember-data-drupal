@@ -8,7 +8,7 @@ Initial docs can be found at http://boris.com.au/ember-data-drupal.
 
 ## Usage
 
-This addon provides an adapter and serializer that can be used applicaiton wide or on a per model basis in the usual way:
+This addon provides an adapter and serializer that can be used application wide or on a per model basis in the usual way:
 
     // app/adapter/application.js
     import DrupalJSONAPIAdapter from 'ember-data-drupal/adapter';
