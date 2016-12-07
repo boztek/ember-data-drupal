@@ -2,6 +2,10 @@
 
 Initial docs can be found at http://boris.com.au/ember-data-drupal.
 
+A demo Ember application is at https://github.com/boztek/ember-drupal-demo-front.
+You can compare tags on that demo app (before-drupal, after-drupal) to see the changes to the models made to support a particular Drupal content model.
+The demo app uses Mirage for a fake JSON backend and can run with or without an actual Drupal server.
+
 ## Installation
 
     ember install ember-data-drupal
