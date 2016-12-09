@@ -6,7 +6,9 @@ A demo Ember application is at https://github.com/boztek/ember-drupal-demo-front
 
 You can compare the tag before-drupal with the final result to see the changes to the models required to support a particular Drupal content model.
 
-The demo app uses Mirage for a fake JSON backend and can run with or without an actual Drupal server.
+The demo app uses Mirage for a fake JSON API backend and can run with or without an actual Drupal server.
+
+A demo CMS to plug in is at https://github.com/boztek/ember-drupal-demo-cms.
 
 ## Installation
 
