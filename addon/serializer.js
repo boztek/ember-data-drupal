@@ -2,26 +2,28 @@ import DS from 'ember-data';
 import Ember from 'ember';
 import { singularize } from 'ember-inflector';
 
-const { normalizeModelName } = DS;
+const {
+  JSONAPISerializer,
+  normalizeModelName,
+} = DS;
+
 const {
   get,
   inject: { service },
-  String: { underscore }
+  String: { underscore },
 } = Ember;
 
 const DRUPAL_FIELD_PREFIX = 'field_';
 
-const DrupalJSONAPISerializer = DS.JSONAPISerializer.extend({
+const DrupalJSONAPISerializer = JSONAPISerializer.extend({
   drupalMapper: service(),
 
   keyForModelAttribute: function(modelName, attr) {
-    let mapper = get(this, 'drupalMapper');
-    return mapper.fieldName(modelName, attr);
+    return get(this, 'drupalMapper').fieldName(modelName, attr);
   },
 
   keyForModelRelationship: function(modelName, attr) {
-    let mapper = get(this, 'drupalMapper');
-    return mapper.fieldName(modelName, attr);
+    return get(this, 'drupalMapper').fieldName(modelName, attr);
   },
 
   modelNameFromPayloadKey(key) {
