@@ -6,6 +6,7 @@ Version 1.0
 - [x] Default to node mapping with singular model to resource name
 - [x] Better support for store.query
 - [ ] Tests to plan scope of support and confirm store features that work
+- [ ] Provide factories instead of manual D8 json:api module payload fixtures
 - [ ] Blueprint to create adapter/serializer
 - [ ] Investigate moving mappings to mapper service instead of config
 - [ ] Code review
