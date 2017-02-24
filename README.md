@@ -1,5 +1,10 @@
 # ember-data-drupal
 
+## Requirements
+
+- Version 0.3.x targets the ALPHA 3 release of Drupal 8's JSON API module.
+- Version 0.4.x will target ALPHA 4 which has many changes and the plan is to jump to a 1.0 release the same time as the module does.
+
 Initial docs can be found at http://boris.com.au/ember-data-drupal.
 
 A demo Ember application is at https://github.com/boztek/ember-drupal-demo-front.
