@@ -17,12 +17,6 @@ export default DS.JSONAPIAdapter.extend({
     return entity + '/' + bundle;
   },
 
-  buildQuery(snapshot) {
-    let query = this._super(...arguments);
-    query._format = 'api_json';
-    return query;
-  },
-
   query(store, type, query) {
     let drupalQuery = { filter: {} },
         queryFields = Object.keys(query),
