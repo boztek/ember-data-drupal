@@ -7,7 +7,7 @@ const {
 } = Ember;
 
 export default DS.JSONAPIAdapter.extend({
-  namespace: 'api',
+  namespace: 'jsonapi',
   drupalMapper: service(),
 
   pathForType(modelName) {
@@ -15,12 +15,6 @@ export default DS.JSONAPIAdapter.extend({
         entity = drupalMapper.entityFor(modelName),
         bundle = drupalMapper.bundleFor(modelName);
     return entity + '/' + bundle;
-  },
-
-  buildQuery(snapshot) {
-    let query = this._super(...arguments);
-    query._format = 'api_json';
-    return query;
   },
 
   query(store, type, query) {
@@ -40,7 +34,6 @@ export default DS.JSONAPIAdapter.extend({
       query = this.sortQueryParams(drupalQuery);
     }
 
-    query._format = 'api_json';
     return this.ajax(url, 'GET', { data: query });
   },
 });
