@@ -27,12 +27,23 @@ const DrupalJSONAPISerializer = JSONAPISerializer.extend({
   },
 
   modelNameFromPayloadKey(key) {
-    let parts = key.split('--');
+    const parts = key.split('--');
     if (parts.length === 2) {
-      let bundle = parts[1];
-      return singularize(normalizeModelName(bundle));
+      const entity = parts[0];
+      const bundle = parts[1];
+      return this.get('drupalMapper').modelNameFor(entity, bundle) || singularize(normalizeModelName(bundle));
     }
     return singularize(normalizeModelName(key));
+  },
+
+  payloadKeyFromModelName(modelName) {
+    const drupalMapper = this.get('drupalMapper');
+    if (drupalMapper.isMapped(modelName)) {
+      const entity = drupalMapper.entityFor(modelName);
+      const bundle = drupalMapper.bundleFor(modelName);
+      return `${entity}--${bundle}`;
+    }
+    return modelName;
   },
 
   extractAttributes(modelClass, resourceHash) {
