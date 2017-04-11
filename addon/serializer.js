@@ -65,6 +65,11 @@ const DrupalJSONAPISerializer = JSONAPISerializer.extend({
     }
     return relationships;
   },
+
+  keyForRelationship(key) {
+    // Prevent dash-ification of underscores in relationship keys
+    return key;
+  },
 });
 
 export default DrupalJSONAPISerializer;
