@@ -70,17 +70,6 @@ const DrupalJSONAPISerializer = JSONAPISerializer.extend({
     // Prevent dash-ification of underscores in relationship keys
     return key;
   },
-
-  // @todo - remove when https://www.drupal.org/node/2868479 is committed
-  serializeHasMany(snapshot, json, relationship) {
-    // Only serialize hasMany relationships that actually contain items
-    let hasMany = snapshot.hasMany(relationship.key);
-    if (hasMany !== undefined) {
-      if (hasMany.length) {
-        this._super(...arguments);
-      }
-    }
-  },
 });
 
 export default DrupalJSONAPISerializer;
